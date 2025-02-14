@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import { useContext } from "react";
+import React, {useState, useContext} from "react";
+import { useAuth } from "./AuthContext";
+import axios from "axios";
 
 export const Login = () => {
 
     const [email,setEmail] = useState("");
-    const [userName, setUserName] = useState("");
     const {login} = useAuth();
 
     const handleEmail = async(event) => {
@@ -25,17 +25,26 @@ export const Login = () => {
     const handleLogin = async() => {
 
         try{
-            await axios.post("http://localhost:8080/user/get/{email}");
-            if (response.status === 200) {
-                login({ email: loginData.userName });
+            const response = await axios.post("http://localhost:8080/user/get/{email}");
+
+            if(response.status === 200){
+                const userName = await axios.get("http://localhost:8080/user/get/username/{email}");
+
+                login({email:email, userName:userName});
+            }
+
+            /*if (response.status === 200) {
+                login({ email: email });
+
+                userName = await axios.get("http://localhost:8080/user/get/{email}");
                 
                 setTimeout(() => {
                   navigate("/redirecting");
                 }, 500);
-              }
+            }*/
         }
         catch(error){
-
+            console.log("Server error. Try again: ", error);
         }
 
     }

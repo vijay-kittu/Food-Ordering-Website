@@ -13,13 +13,22 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins="http://localhost:3000")
 public class UserController {
 
+    /*
+
+    */
+
     @Autowired
     public UserRepository userRepository;
-
+    
     @GetMapping("/get/{email}")
     public ResponseEntity<Boolean> checkUserExists(@PathVariable String email) {
         boolean checkUser = userRepository.existsByEmail(email);
         return ResponseEntity.ok(checkUser);
+    }
+    @GetMapping("/get/username/{email}")
+    public String sendUserName(@PathVariable String email) {
+        User user = userRepository.findByEmail(email);
+        return user != null ? user.getUserName() : null;
     }
 
     @PostMapping("/login")
