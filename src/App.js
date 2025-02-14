@@ -7,40 +7,39 @@ import {Cart} from "./components/Cart.js";
 import {Profile} from "./components/Profile.js"; 
 import {NotFound} from "./components/NotFound.js";
 import {Navbar} from "./components/Navbar.js"; 
+import { Login } from './components/Login.js';
+import { AuthProvider } from './components/AuthContext.js';
+import { ContactUs } from './components/ContactUs.js';
 
 
 
 function App() {
 
-  const [contactIsVisible,setContactIsVisible] = useState(false);
+  /*const [contactIsVisible,setContactIsVisible] = useState(false);
 
   function handleClose(contactIsVisible) {
     setContactIsVisible(!contactIsVisible);
-  }
+  }*/
   return (
-    <div className="App">
+    <AuthProvider>
+      <div className="App">
 
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
 
+        <ContactUs />
 
-        </Routes>
-      </Router>
-
-      {/*<div className="contact-button" onClick={() => handleClose(contactIsVisible)}>
-        <p>Contact Us</p>
+        
       </div>
-
-      {contactIsVisible && (<Contact_Page />)}*/}
-
-      
-    </div>
+    </AuthProvider>
   );
 }
 

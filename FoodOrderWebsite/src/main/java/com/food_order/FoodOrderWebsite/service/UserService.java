@@ -11,7 +11,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public User registerUser(User user) {
-        if(userRepository.existsByUserName(user.getUserName())){
+        if(userRepository.existsByEmail(user.getUserName())){
             throw new RuntimeException("User already exists!");
         }
 

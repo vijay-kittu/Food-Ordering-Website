@@ -352,4 +352,8 @@ body::-webkit-scrollbar-track-piece {
   cursor: pointer;
 }
 
+.login {
+  position: relative;
+  margin-top: 50px;
+}
 

@@ -16,15 +16,15 @@ public class UserController {
     @Autowired
     public UserRepository userRepository;
 
-    @GetMapping("/get/{userName}")
-    public ResponseEntity<Boolean> checkUserExists(@PathVariable String userName) {
-        boolean checkUser = userRepository.existsByUserName(userName);
+    @GetMapping("/get/{email}")
+    public ResponseEntity<Boolean> checkUserExists(@PathVariable String email) {
+        boolean checkUser = userRepository.existsByEmail(email);
         return ResponseEntity.ok(checkUser);
     }
 
     @PostMapping("/login")
     public ResponseEntity<String> loginUser(@RequestBody User user) {
-        User dbUser = userRepository.findByUserName(user.getUserName());
+        User dbUser = userRepository.findByEmail(user.getEmail());
 
         if (dbUser == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not found");
