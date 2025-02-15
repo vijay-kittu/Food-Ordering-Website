@@ -8,7 +8,7 @@ export const Navbar = () => {
             <div className="right">
                 <Link className="links " to="/cart"> Cart </Link>
                 <Link className="links " to="/notifications"> Notifications </Link>
-                <Link style={{marginRight:'10px'}} className="links " to="/profile"> My Profile </Link>
+                <Link style={{marginRight:'10px'}} className="links " to="/login"> My Profile </Link>
             </div>
             
         </div>

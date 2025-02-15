@@ -31,7 +31,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/profile" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

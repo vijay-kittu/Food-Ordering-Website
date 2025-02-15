@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
 
@@ -7,6 +8,7 @@ export const Register = () => {
         userName:"",
         email:""
     });
+    const navigate = useNavigate();
 
     const handleInput = (event) => {
         
@@ -19,6 +21,9 @@ export const Register = () => {
     const handleUser = async() => {
         try{
             const response = await axios.post("http://localhost:8080/user/register", user);
+            setTimeout(() => {
+                navigate("/login");
+            }, 1000);
             console.log("User added:", response.data);
         }
         catch(error){

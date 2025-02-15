@@ -60,7 +60,11 @@ export const Login = () => {
     }
 
     return (
+
+        
         <div className="login">
+            {/*response.status === 200 && setTimeout(() => {navigate("/profile");}, 1000)*/}
+
             <input type="email" placeholder="Enter Email" onChange={handleEmail} />
             <button type="submit" onClick={handleLogin} >Login</button>
             <Link to="/register">New user? Register here.</Link>
