@@ -1,6 +1,7 @@
 import React, {useState, useContext} from "react";
 import { useAuth } from "./AuthContext";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
 
@@ -53,6 +54,7 @@ export const Login = () => {
         <div className="login">
             <input type="email" placeholder="Enter Email" onChange={handleEmail} />
             <button type="submit" onClick={handleLogin} >Login</button>
+            <Link to="/register">New user? Register here.</Link>
         </div>
     );
 }

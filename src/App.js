@@ -8,6 +8,7 @@ import {Profile} from "./components/Profile.js";
 import {NotFound} from "./components/NotFound.js";
 import {Navbar} from "./components/Navbar.js"; 
 import { Login } from './components/Login.js';
+import { Register } from './components/Register.js';
 import { AuthProvider } from './components/AuthContext.js';
 import { ContactUs } from './components/ContactUs.js';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

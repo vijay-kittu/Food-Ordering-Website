@@ -19,7 +19,7 @@ public class UserController {
 
     @Autowired
     public UserRepository userRepository;
-    
+
     @GetMapping("/get/{email}")
     public ResponseEntity<Boolean> checkUserExists(@PathVariable String email) {
         boolean checkUser = userRepository.existsByEmail(email);

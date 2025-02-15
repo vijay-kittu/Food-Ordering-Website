@@ -353,7 +353,9 @@ body::-webkit-scrollbar-track-piece {
 }
 
 .login {
-  position: relative;
   margin-top: 100px;
 }
 
+.register {
+  margin-top: 100px;;
+}
