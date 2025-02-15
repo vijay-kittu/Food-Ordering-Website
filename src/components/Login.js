@@ -1,37 +1,46 @@
-import React, {useState, useContext} from "react";
+import React, {useState} from "react";
 import { useAuth } from "./AuthContext";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
 
     const [email,setEmail] = useState("");
+    const navigate = useNavigate();
     const {login} = useAuth();
 
-    const handleEmail = async(event) => {
+    const handleEmail = (event) => {
 
         setEmail(event.target.value);
 
-        try{
+        /*try{
             const response = await axios.get("http://localhost:8080/user/get/{email}");
-            return(response.data);
+            if(response.data){
+                setTimeout(() => {
+                    navigate("/login");
+                  }, 1000);
+            }
         }
         catch(error){
             console.log("Incorrect Email. Try again: ", error);
             return false;
-        }
+        }*/
         
     }
 
     const handleLogin = async() => {
 
         try{
-            const response = await axios.post("http://localhost:8080/user/get/{email}");
+            const response = await axios.post("http://localhost:8080/user/login", {email});
 
             if(response.status === 200){
                 const userName = await axios.get("http://localhost:8080/user/get/username/{email}");
 
                 login({email:email, userName:userName});
+
+                setTimeout(() => {
+                    navigate("/");
+                }, 1000);
             }
 
             /*if (response.status === 200) {
