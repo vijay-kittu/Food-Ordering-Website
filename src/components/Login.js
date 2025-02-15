@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useAuth } from "./AuthContext";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,13 @@ export const Login = () => {
 
     const [email,setEmail] = useState("");
     const navigate = useNavigate();
-    const {login} = useAuth();
+    const {login, user} = useAuth();
+
+    useEffect(() => {
+        if(user && user.email && user.userName){
+            navigate("/profile");
+        }
+    }, [user, navigate]);
 
     const handleEmail = (event) => {
 
@@ -34,13 +40,13 @@ export const Login = () => {
             const response = await axios.post("http://localhost:8080/user/login", {email});
 
             if(response.status === 200){
-                const userName = await axios.get("http://localhost:8080/user/get/username/{email}");
+                const userName = await axios.get(`http://localhost:8080/user/get/username/${email}`);
 
-                login({email:email, userName:userName});
+                login({email:email, userName:userName.data});
 
                 setTimeout(() => {
                     navigate("/");
-                }, 1000);
+                });
             }
 
             /*if (response.status === 200) {
@@ -59,9 +65,7 @@ export const Login = () => {
 
     }
 
-    return (
-
-        
+    return ( 
         <div className="login">
             {/*response.status === 200 && setTimeout(() => {navigate("/profile");}, 1000)*/}
 
