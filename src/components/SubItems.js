@@ -1,7 +1,13 @@
 import {AddToCart} from "./AddToCart";
-import React from "react";
+import React,{useState} from "react";
 
 export const SubItems = ({ selectedItem }) => {
+
+    const [item, setItem] = useState([]);
+
+    const handleItem = (event) => {
+        setItem([...item, event.target.value]);
+    }
 
     const SubItem = {
         
@@ -189,7 +195,7 @@ export const SubItems = ({ selectedItem }) => {
                     <h3>Chicken Manchurian</h3>
                     <p>₹45</p>
                 </div>
-                <AddToCart /> 
+                <button type="submit" onClick={handleItem(SubItem[selectedItem])}>Add to Cart</button>
             </div>
         </div>
         ,
@@ -210,6 +216,16 @@ export const SubItems = ({ selectedItem }) => {
         <div>
             {SubItem[selectedItem]}
             {/*{SubItem[selectedItem] || <div>Please select a food item.</div>}*/}
+            <div>Cart</div>
+            <div>
+                {
+                    for(i in item){
+                        <div>{SubItem[i]}</div>
+                    }
+                }
+            </div>
+
+
         </div>
     );
 
