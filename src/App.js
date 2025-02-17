@@ -11,10 +11,24 @@ import { Login } from './components/Login.js';
 import { Register } from './components/Register.js';
 import { AuthProvider } from './components/AuthContext.js';
 import { ContactUs } from './components/ContactUs.js';
+import { SubItems } from './components/SubItems.js';
+import { AddToCart } from './components/AddToCart.js';
 
 
 
 function App() {
+
+  const [cart, setCart] = useState({
+          itemName:"",
+          price:null,
+          quantity:null
+      });
+
+  const handleCart = (event) => {
+    setCart({...cart, quantity:event.target.value});
+  }
+
+
 
   /*const [contactIsVisible,setContactIsVisible] = useState(false);
 
@@ -30,7 +44,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/notifications" element={<Notifications />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/addtocart" element={<AddToCart cart={cart} setCart={setCart} handleCart={handleCart} />} />
+            <Route path="/subitems" element={<SubItems cart={cart} setCart={setCart} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/register" element={<Register />} />
@@ -39,8 +54,6 @@ function App() {
         </Router>
 
         <ContactUs />
-
-        
       </div>
     </AuthProvider>
   );

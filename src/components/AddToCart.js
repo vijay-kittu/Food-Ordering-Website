@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
+import App from '../App';
 
-export const AddToCart = ({item, price}) => {
+export const AddToCart = ({cart, setCart, handleCart}) => {
 
     const [quantity, setQuantity] = useState(1);
 
-    const handleAddToCart = () => {
+    /*const handleAddToCart = () => {
         const cartItem = {
             item,
             price,
@@ -12,17 +13,17 @@ export const AddToCart = ({item, price}) => {
         };
 
         console.log("Added To Cart: ", cartItem);
-    };
+    };*/
 
     return (
         <div className="add-to-cart">
             <input
                 type='number'
                 value={quantity}
-                onChange={(event) => setQuantity(Number(event.target.value)) }
+                onChange={handleCart}
                 min='1'
             />
-            <button onClick={handleAddToCart} >
+            <button onClick={handleCart} >
                 Add {quantity} To Cart
             </button>
         </div> 
