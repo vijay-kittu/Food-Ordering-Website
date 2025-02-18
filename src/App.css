@@ -341,6 +341,11 @@ body::-webkit-scrollbar-track-piece {
   flex-grow: 1;
 }
 
+.cart-item {
+  display: flex;
+  justify-content: space;
+}
+
 .add-to-cart button {
   margin-right: 15px;
   color: white;

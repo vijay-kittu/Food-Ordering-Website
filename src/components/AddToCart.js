@@ -19,7 +19,7 @@ export const AddToCart = ({cart, setCart, handleCart}) => {
         <div className="add-to-cart">
             <input
                 type='number'
-                value={quantity}
+                
                 onChange={handleCart}
                 min='1'
             />

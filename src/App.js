@@ -18,15 +18,15 @@ import { AddToCart } from './components/AddToCart.js';
 
 function App() {
 
-  const [cart, setCart] = useState({
+  /*const [cart, setCart] = useState({
           itemName:"",
           price:null,
           quantity:null
       });
 
   const handleCart = (event) => {
-    setCart({...cart, quantity:event.target.value});
-  }
+    setCart({...cart, [q]:event.target.value});
+  }*/
 
 
 
@@ -44,8 +44,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/notifications" element={<Notifications />} />
-            <Route path="/addtocart" element={<AddToCart cart={cart} setCart={setCart} handleCart={handleCart} />} />
-            <Route path="/subitems" element={<SubItems cart={cart} setCart={setCart} />} />
+            <Route path="/addtocart" element={<AddToCart  />} />
+            <Route path="/subitems" element={<SubItems  />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/register" element={<Register />} />

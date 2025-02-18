@@ -1,18 +1,35 @@
-import {AddToCart} from "./AddToCart";
+
 import React,{useState} from "react";
+import "../App.css";
 
-export const SubItems = ({ props }) => {
+export const SubItems = ({ selectedItem }) => {
 
-    const [item, setItem] = useState([]);
-    /*const [cart, setCart] = useState({
+    /*const [item, setItem] = useState([]);
+    const [cart, setCart] = useState({
         itemName:"",
         price:null,
         quantity:null
     })*/
 
-    const handleItem = (event) => {
-        setItem([...item, event.target.value]);
-    }
+    const [cart, setCart] = useState([]); // Initialize cart as an array
+    const [tempItem, setTempItem] = useState({ itemName: "", price: null, quantity: 1 });
+    const [total, setTotal] = useState(0);
+
+    const handleItem = (e) => {
+        const itemDiv = e.target.closest(".subitem");
+        const itemName = itemDiv.querySelector("h4").innerText;
+        const price = parseInt(itemDiv.querySelector("p").innerText.replace("₹", ""), 10);
+        const quantity = parseInt(e.target.value, 10) || 1; // Default to 1 if empty
+
+        setTempItem({ itemName, price, quantity }); // Update tempItem only
+    };
+
+    const handleCart = () => {
+        if (!tempItem.itemName || !tempItem.price) return; // Ensure valid item
+        setCart((prevCart) => [...prevCart, tempItem]); // Add new item to cart
+        console.log("Cart after adding:", [...cart, tempItem]);
+        setTotal(total + (tempItem.quantity * tempItem.price));
+    };
 
     const SubItem = {
         
@@ -21,48 +38,52 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/chicken_biryani.jpg" alt='Chicken Biryani' />
                 <div value className="subitem-details">
-                    <h3 value={itemName} >Chicken Biryani</h3>
-                    <p value={price} >₹75</p>
+                    <h4 name="itemName"  >Chicken Biryani</h4>
+                    <p name="price"  >₹75</p>
                 </div>
-                {/*<input />
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>*/}
-                <AddToCart itemName={itemName} price={price} /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                {/*< itemName={itemName} price={price} />*/} 
             </div>
             <div className='subitem'>
                 <img src="/images/chicken_biryani.jpg" alt='Chicken Biryani' />
                 <div className="subitem-details">
-                    <h3>Chicken Biryani</h3>
+                    <h4>Chicken Biryani</h4>
                     <p>₹75</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
             <div className='subitem'>
                 <img src="/images/chicken_biryani.jpg" alt='Chicken Biryani' />
                 <div className="subitem-details">
-                    <h3>Chicken Biryani</h3>
+                    <h4>Chicken Biryani</h4>
                     <p>₹75</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
             <div className='subitem'>
                 <img src="/images/chicken_biryani.jpg" alt='Chicken Biryani' />
                 <div className="subitem-details">
-                    <h3>Chicken Biryani</h3>
+                    <h4>Chicken Biryani</h4>
                     <p>₹75</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
             <div className='subitem'>
                 <img src="/images/chicken_biryani.jpg" alt='Chicken Biryani' />
                 <div className="subitem-details">
-                    <h3>Chicken Biryani</h3>
+                    <h4>Chicken Biryani</h4>
                     <p>₹75</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -71,38 +92,42 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -111,11 +136,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -124,11 +150,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -137,11 +164,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -150,11 +178,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -163,11 +192,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -176,11 +206,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -189,11 +220,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/paneer_butter_masala.jpg" alt='Paneer Butter Masala' />
                 <div className="subitem-details">
-                    <h3>Paneer Butter Masala</h3>
+                    <h4>Paneer Butter Masala</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -202,11 +234,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/group_nonveg_gravy.jpg" alt='Chicken Gravy' />
                 <div className="subitem-details">
-                    <h3>Chicken Gravy</h3>
+                    <h4>Chicken Gravy</h4>
                     <p>₹55</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
         ,
@@ -215,10 +248,11 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/group_dry_item.jpg" alt='Chicken Manchurian' />
                 <div className="subitem-details">
-                    <h3>Chicken Manchurian</h3>
+                    <h4>Chicken Manchurian</h4>
                     <p>₹45</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
             </div>
         </div>
         ,
@@ -227,11 +261,12 @@ export const SubItems = ({ props }) => {
             <div className='subitem'>
                 <img src="/images/group_snacks.jpg" alt='Lays' />
                 <div className="subitem-details">
-                    <h3>Lays</h3>
+                    <h4>Lays</h4>
                     <p>₹15</p>
                 </div>
-                <button type="submit" id="11"  onClick={handleItem}>Add to Cart</button>
-                <AddToCart /> 
+                <input type="number"   onChange={handleItem} min="1" />
+                <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
+                 
             </div>
         </div>
     };
@@ -241,7 +276,17 @@ export const SubItems = ({ props }) => {
             {SubItem[selectedItem]}
             {/*{SubItem[selectedItem] || <div>Please select a food item.</div>}*/}
             <div>Cart</div>
-            
+            {cart.map((item, index) => (
+                <div key={index} className="cart-item">
+                <h4>{item.itemName}</h4>
+                <p>Price: ₹{item.price}</p>
+                <p>Quantity: {item.quantity}</p>
+                <p>Total Price: {item.price * item.quantity}</p>
+                {/*total += (item.quantity * item.price)*/}
+                </div>
+            ))}
+        
+        <h3>Total Amount: {total}</h3>    
 
 
         </div>
