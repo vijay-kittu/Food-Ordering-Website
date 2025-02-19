@@ -370,6 +370,10 @@ body::-webkit-scrollbar-track-piece {
   margin-top: 100px;
 }
 
+.selected-items {
+  min-height: 900px;
+}
+
 .cart-subitem {
   display: flex;
   justify-content: space-evenly;

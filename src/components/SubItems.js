@@ -268,8 +268,11 @@ export const SubItems = ({ selectedItem }) => {
 
     return (
         <div>
-            {SubItem[selectedItem]}
-            {/*{SubItem[selectedItem] || <div>Please select a food item.</div>}*/}
+            {SubItem[selectedItem] || <div>Please select a food item.</div>}
+            
+            <div>
+                
+            </div>
             <div>Cart</div>
             {cart.map((item, index) => (
                 <div key={index} className="cart-item">
