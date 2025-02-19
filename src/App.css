@@ -342,8 +342,9 @@ body::-webkit-scrollbar-track-piece {
 }
 
 .cart-item {
-  display: flex;
-  justify-content: space;
+  display:flex;
+  flex-direction: column;
+  
 }
 
 .add-to-cart button {
@@ -369,7 +370,12 @@ body::-webkit-scrollbar-track-piece {
   margin-top: 100px;
 }
 
-.total-price {
+.cart-subitem {
   display: flex;
-  justify-content: end;
+  justify-content: space-evenly;
+}
+
+.right-align {
+  display: flex;
+  justify-content:end;
 }
