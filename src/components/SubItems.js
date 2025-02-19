@@ -4,12 +4,7 @@ import "../App.css";
 
 export const SubItems = ({ selectedItem }) => {
 
-    /*const [item, setItem] = useState([]);
-    const [cart, setCart] = useState({
-        itemName:"",
-        price:null,
-        quantity:null
-    })*/
+    
 
     const [cart, setCart] = useState([]); // Initialize cart as an array
     const [tempItem, setTempItem] = useState({ itemName: "", price: null, quantity: 1 });
@@ -43,7 +38,7 @@ export const SubItems = ({ selectedItem }) => {
                 </div>
                 <input type="number"   onChange={handleItem} min="1" />
                 <button type="submit" id="11" onClick={handleCart}  >Add to Cart</button>
-                {/*< itemName={itemName} price={price} />*/} 
+                
             </div>
             <div className='subitem'>
                 <img src="/images/chicken_biryani.jpg" alt='Chicken Biryani' />
@@ -281,8 +276,7 @@ export const SubItems = ({ selectedItem }) => {
                 <h4>{item.itemName}</h4>
                 <p>Price: ₹{item.price}</p>
                 <p>Quantity: {item.quantity}</p>
-                <p>Total Price: {item.price * item.quantity}</p>
-                {/*total += (item.quantity * item.price)*/}
+                <p className="total-price">Total Price: {item.price * item.quantity}</p>
                 </div>
             ))}
         
@@ -293,10 +287,7 @@ export const SubItems = ({ selectedItem }) => {
     );
 
 
-    {/*2: const VegGravy = () => {
-        return (
-            
-        );*/}
+    
 };
 
 
