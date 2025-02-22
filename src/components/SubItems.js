@@ -271,17 +271,18 @@ export const SubItems = ({ selectedItem }) => {
             {SubItem[selectedItem] }
             
             <div className="cart">
-                <div>Cart</div>
+                <h2>Cart</h2>
 
                 {cart.map((item, index) => (
                     <div key={index} className="cart-item">
                         <div className="cart-subitem">
-                            <h4>{item.itemName}</h4>
-                            <p className="right-align">Price: ₹{item.price}</p>
+                            <p>{item.itemName}</p>
+                            <p >Price: ₹{item.price}</p>
                             <p>Quantity: {item.quantity}</p>
+                            <p className="right-align">Total Price: {item.price * item.quantity}</p>
                         </div>
                         
-                        <p className="right-align">Total Price: {item.price * item.quantity}</p>
+                        
                     </div>
                 )) }
             

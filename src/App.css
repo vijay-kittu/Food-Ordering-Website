@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   color: white;
+  font-family: sans-serif;
 }
 
 body {
@@ -13,9 +14,8 @@ body {
   background-color: black;
 }
 
-body::-webkit-scrollbar {
-  background-color: transparent;
-  width:8px;
+::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -25,16 +25,9 @@ body::-webkit-scrollbar {
   border-radius: 10%;
 }*/
 
-body::-webkit-scrollbar-thumb {
-  background-color: red;
-  border-radius: 40%;
 
-}
 
-body::-webkit-scrollbar-track-piece {
-  background-color: transparent;
-  border-radius: 10px;
-}
+
 
 /*-------------------------------------------------------------------------*/
 
@@ -275,16 +268,7 @@ body::-webkit-scrollbar-track-piece {
   font-size: 1.8vw;
 }
 
-.items-grid::-webkit-scrollbar {
-  background-color: black;
-  height: 5px;
-}
 
-.items-grid::-webkit-scrollbar-thumb {
-  background-color: red;
-  border-radius: 40%;
-  
-}
 
 .item-group h3 {
   margin-top: 1px;
@@ -325,8 +309,9 @@ body::-webkit-scrollbar-track-piece {
   display:flex;
   height:20vh;
   border: 1px;
-  border-color: red;
-  background-color: /*rgb(255,255,255,0.5);*/black;
+  border-radius: 10px;
+  background-color: slategray;
+  
   margin-bottom: 0.2rem;
 }
 
@@ -335,6 +320,7 @@ body::-webkit-scrollbar-track-piece {
   width:12.5vw;
   padding: 3px;
   margin-right:6px;
+  border-radius: 10px;
 }
 
 .subitem-details {
@@ -371,25 +357,38 @@ body::-webkit-scrollbar-track-piece {
 }
 
 .cart {
-  min-height: 400px;
+  
+  display: flex;
+  flex-direction: column;
 }
 
-.cart h3 {
-  display: flex;
-  justify-content:last baseline;
-  
+.cart-item {
+  min-height: 300px;
 }
 
 .cart-subitem {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.cart-subitem p {
+  margin-right: 10px;
 }
 
 .right-align {
+  margin-left: auto;
+}
+
+.contact-logo {
   display: flex;
-  justify-content:end;
+  
 }
 
 .contact-logo img {
-  height: 30px;
+  height: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  opacity: 80%;
 }
+
+
