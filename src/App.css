@@ -370,8 +370,14 @@ body::-webkit-scrollbar-track-piece {
   margin-top: 100px;
 }
 
-.selected-items {
-  min-height: 900px;
+.cart {
+  min-height: 400px;
+}
+
+.cart h3 {
+  display: flex;
+  justify-content:last baseline;
+  
 }
 
 .cart-subitem {
@@ -382,4 +388,8 @@ body::-webkit-scrollbar-track-piece {
 .right-align {
   display: flex;
   justify-content:end;
+}
+
+.contact-logo img {
+  height: 30px;
 }

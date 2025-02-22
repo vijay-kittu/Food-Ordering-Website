@@ -29,7 +29,7 @@ export const Home = () => {
             </div>
 
             <DeliveryFlex />
-            <ContactUs />
+            
         </div>
     );
 }

@@ -268,27 +268,25 @@ export const SubItems = ({ selectedItem }) => {
 
     return (
         <div>
-            {SubItem[selectedItem] || <div>Please select a food item.</div>}
+            {SubItem[selectedItem] }
             
-            <div>
-                
-            </div>
-            <div>Cart</div>
-            {cart.map((item, index) => (
-                <div key={index} className="cart-item">
-                    <div className="cart-subitem">
-                        <h4>{item.itemName}</h4>
-                        <p className="right-align">Price: ₹{item.price}</p>
-                        <p>Quantity: {item.quantity}</p>
+            <div className="cart">
+                <div>Cart</div>
+
+                {cart.map((item, index) => (
+                    <div key={index} className="cart-item">
+                        <div className="cart-subitem">
+                            <h4>{item.itemName}</h4>
+                            <p className="right-align">Price: ₹{item.price}</p>
+                            <p>Quantity: {item.quantity}</p>
+                        </div>
+                        
+                        <p className="right-align">Total Price: {item.price * item.quantity}</p>
                     </div>
-                    
-                    <p className="right-align">Total Price: {item.price * item.quantity}</p>
-                </div>
-            ))}
-        
-        <h3>Total Amount: {total}</h3>    
-
-
+                )) }
+            
+                <h3>Total Amount: {total}</h3>
+            </div>
         </div>
     );
 
