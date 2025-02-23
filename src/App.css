@@ -357,13 +357,17 @@ body {
 }
 
 .cart {
-  
   display: flex;
   flex-direction: column;
 }
 
+.cart hr {
+  color: aliceblue;
+  width: 90%;
+}
+
 .cart-item {
-  min-height: 300px;
+  min-height: 60px;
 }
 
 .cart-subitem {
@@ -375,8 +379,14 @@ body {
   margin-right: 10px;
 }
 
+
 .right-align {
   margin-left: auto;
+}
+
+.contact {
+  display: flex;
+  justify-items: left;
 }
 
 .contact-logo {
@@ -389,6 +399,23 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   opacity: 80%;
+}
+
+.contact hr {
+  color: aliceblue;
+  width: 800px;
+}
+
+.login {
+  height: 200px;
+  width: 500px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login div {
+  flex-direction: row;
 }
 
 

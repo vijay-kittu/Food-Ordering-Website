@@ -1,9 +1,7 @@
-//import {};
-
 export const ContactUs = () => {
     return(
         <div className='contact'>
-            <div>EXPLORE MORE OF US!!</div>
+            <hr />
             <div className="contact-logo">
                 <a href="https://github.com/vijay-kittu" target="_blank" rel="noopener noreferrer">
                     <img src="/images/github.png" />
