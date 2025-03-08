@@ -47,7 +47,7 @@ body {
   position: relative;
   z-index:1;
   height:6vw;
-  width:66%;
+  width:64%;
   transform: translateY(215%);
   background-color: red;
   animation: typing 1.5s , step-end alternate;

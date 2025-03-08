@@ -6,10 +6,10 @@ export const Home = () => {
     <div className="home">
       <div className="website-intro">
         <div className="black-block"></div>
-        <p className="typing-animation">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 𝑩𝒂𝒆 𝑺𝒖𝒛𝒚</p>
+        <p className="typing-animation">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 {/*𝑩𝒂𝒆 𝑺𝒖𝒛𝒚*/}FastFeast</p>
       </div>
       <div className="subtitle ">
-        Single destination for all your hunger tantrums
+        Single destination for all your favourite dishes
       </div>
       <div>
         <br></br>

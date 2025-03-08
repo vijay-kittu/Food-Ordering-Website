@@ -5,7 +5,7 @@ export const Navbar = () => {
       <div>
         <Link className="homepage" to="/">
           {" "}
-          𝓑𝓪𝓮 𝓢𝓾𝔃𝔂{" "}
+          {/*𝓑𝓪𝓮 𝓢𝓾𝔃𝔂*/}FastFeast{" "}
         </Link>
       </div>
       <div className="right">
