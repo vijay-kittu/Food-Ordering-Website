@@ -14,21 +14,6 @@ import { AddToCart } from "./components/AddToCart.js";
 import { CartProvider } from "./components/CartContext.js";
 
 function App() {
-  /*const [cart, setCart] = useState({
-          itemName:"",
-          price:null,
-          quantity:null
-      });
-
-  const handleCart = (event) => {
-    setCart({...cart, [q]:event.target.value});
-  }*/
-
-  /*const [contactIsVisible,setContactIsVisible] = useState(false);
-
-  function handleClose(contactIsVisible) {
-    setContactIsVisible(!contactIsVisible);
-  }*/
   return (
     <AuthProvider>
       <CartProvider>
