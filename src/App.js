@@ -1,21 +1,19 @@
-import './App.css';
-import {useState} from 'react';
-import {BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import {Home} from "./components/Home.js"; 
-import {Profile} from "./components/Profile.js"; 
-import {NotFound} from "./components/NotFound.js";
-import {Navbar} from "./components/Navbar.js"; 
-import { Login } from './components/Login.js';
-import { Register } from './components/Register.js';
-import { AuthProvider } from './components/AuthContext.js';
-import { ContactUs } from './components/ContactUs.js';
-import { SubItems } from './components/SubItems.js';
-import { AddToCart } from './components/AddToCart.js';
-
-
+import "./App.css";
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Home } from "./components/Home.js";
+import { Profile } from "./components/Profile.js";
+import { NotFound } from "./components/NotFound.js";
+import { Navbar } from "./components/Navbar.js";
+import { Login } from "./components/Login.js";
+import { Register } from "./components/Register.js";
+import { AuthProvider } from "./components/AuthContext.js";
+import { ContactUs } from "./components/ContactUs.js";
+import { SubItems } from "./components/SubItems.js";
+import { AddToCart } from "./components/AddToCart.js";
+import { CartProvider } from "./components/CartContext.js";
 
 function App() {
-
   /*const [cart, setCart] = useState({
           itemName:"",
           price:null,
@@ -26,8 +24,6 @@ function App() {
     setCart({...cart, [q]:event.target.value});
   }*/
 
-
-
   /*const [contactIsVisible,setContactIsVisible] = useState(false);
 
   function handleClose(contactIsVisible) {
@@ -35,23 +31,24 @@ function App() {
   }*/
   return (
     <AuthProvider>
-      <div className="App">
+      <CartProvider>
+        <div className="App">
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<AddToCart />} />
+              <Route path="/subitems" element={<SubItems />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Router>
 
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/addtocart" element={<AddToCart  />} />
-            <Route path="/subitems" element={<SubItems  />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Router>
-
-        <ContactUs />
-      </div>
+          <ContactUs />
+        </div>
+      </CartProvider>
     </AuthProvider>
   );
 }

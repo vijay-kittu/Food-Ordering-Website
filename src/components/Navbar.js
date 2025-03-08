@@ -9,10 +9,6 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="right">
-        <Link className="links " to="/cart">
-          {" "}
-          Cart{" "}
-        </Link>
         <Link style={{ marginRight: "10px" }} className="links " to="/login">
           {" "}
           My Profile{" "}
