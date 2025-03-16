@@ -12,6 +12,7 @@ import { ContactUs } from "./components/ContactUs.js";
 import { SubItems } from "./components/SubItems.js";
 import { AddToCart } from "./components/AddToCart.js";
 import { CartProvider } from "./components/CartContext.js";
+import { OrderPlaced } from "./components/OrderPlaced.js";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/subitems" element={<SubItems />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/order-placed" element={<OrderPlaced />} />
               <Route path="/register" element={<Register />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

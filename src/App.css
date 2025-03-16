@@ -343,6 +343,33 @@ body {
   margin-bottom: 40vh;
 }
 
+.order-placed {
+  height: 90vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.place-order-button {
+  width: auto;
+  max-width: 500px;
+  height: 50px;
+  background-color: red;
+  color: black;
+  font-size: larger;
+  text-align: center;
+  text-decoration: none;
+  align-content: center;
+}
+
+.place-order-button:hover {
+  background-color: red;
+  color: white;
+  font-family: "MerriWeather";
+  cursor: pointer;
+}
+
 .profile {
   margin-top: 100px;
 }

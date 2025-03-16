@@ -1,15 +1,21 @@
 import React, { useContext } from "react";
 import { CartContext } from "./CartContext";
+import { OrderPlaced } from "./OrderPlaced";
+import { Link } from "react-router-dom";
 
 export const AddToCart = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, emptyCart } = useContext(CartContext);
+
+  const handleClick = (event) => {
+    emptyCart(); // Clear the cart before navigating
+  };
 
   return (
     <div className="cart">
       <h2>Cart</h2>
 
       <hr />
-      {cart.length === 0 ? (
+      {!cart || cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
         cart.map((item, index) => (
@@ -23,15 +29,24 @@ export const AddToCart = () => {
                 Total Price: {item.price * item.quantity}
               </p>
             </div>
+            <h3>
+              Total Amount: ₹
+              {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+            </h3>
+
+            {cart && (
+              <Link
+                to="/order-placed"
+                className="place-order-button"
+                onClick={handleClick}
+              >
+                Place Order
+              </Link>
+            )}
           </div>
         ))
       )}
-
       <hr />
-      <h3>
-        Total Amount: ₹
-        {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
-      </h3>
     </div>
   );
 };
