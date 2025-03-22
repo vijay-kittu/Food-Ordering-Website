@@ -29,24 +29,28 @@ export const AddToCart = () => {
                 Total Price: {item.price * item.quantity}
               </p>
             </div>
-            <h3>
-              Total Amount: ₹
-              {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
-            </h3>
-
-            {cart && (
-              <Link
-                to="/order-placed"
-                className="place-order-button"
-                onClick={handleClick}
-              >
-                Place Order
-              </Link>
-            )}
           </div>
         ))
       )}
       <hr />
+
+      {!cart || cart.length === 0 ? (
+        <p></p>
+      ) : (
+        <div className="cart-appear">
+          <h3>
+            Total Amount: ₹
+            {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+          </h3>
+          <Link
+            to="/order-placed"
+            className="place-order-button"
+            onClick={handleClick}
+          >
+            Place Order
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

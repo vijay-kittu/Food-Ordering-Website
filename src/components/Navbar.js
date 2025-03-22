@@ -8,6 +8,7 @@ export const Navbar = () => {
           {/*𝓑𝓪𝓮 𝓢𝓾𝔃𝔂*/}FastFeast{" "}
         </Link>
       </div>
+      <div className="navbar-block"></div>
       <div className="right">
         <Link style={{ marginRight: "10px" }} className="links " to="/login">
           {" "}

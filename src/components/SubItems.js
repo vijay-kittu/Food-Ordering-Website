@@ -38,6 +38,7 @@ export const SubItems = ({ selectedItem }) => {
           <img src="/images/chicken_biryani.jpg" alt="Chicken Shawarma" />
           <div value className="subitem-details">
             <h4 name="itemName">Chicken Shawarma</h4>
+
             <p name="price">₹55</p>
           </div>
           <input type="number" onChange={handleItem} min="1" />

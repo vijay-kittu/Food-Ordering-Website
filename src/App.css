@@ -192,6 +192,8 @@ body {
 }
 
 .grid-section-boxes {
+  height: 40vh;
+  font-size:medium;
   display:flex;
   gap: 0rem;
   justify-content: space-between;
@@ -206,8 +208,8 @@ body {
 }
 
 .grid-section-boxes img {
-  width: 205px;
-  min-height: 145px;
+  
+  height: 25vh;
   align-items: center;
   display: block;
   margin:auto;
@@ -221,7 +223,7 @@ body {
   color: white;
   border-radius: 6px;
   height: 180px;
-  min-width: 220px;
+  min-width: 40vh;
   text-align: center;
 }
 
@@ -276,19 +278,25 @@ body {
 .subitems {
   width: 95%;
   margin: auto;
-  
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .subitem {
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
   display:flex;
-  height:20vh;
+  flex-direction: column;
+  height:60vh;
+  width: 40vh;
   border: 1px;
   border-radius: 10px;
   background-color: slategray;
   margin-bottom: 0.2rem;
 }
+
+
 
 .subitem button {
   background-color: red;
@@ -297,22 +305,21 @@ body {
   height: 30px;
 }
 
+.subitem button:hover{
+  cursor: pointer;
+}
+
 .subitem input {
   height: 25px;
-  
 }
 
 .subitem img {
-  height: calc(100% - 6px);
-  width:12.5vw;
-  padding: 3px;
-  margin-right:6px;
+  height: 30vh;
+  width:100%;
   border-radius: 10px;
 }
 
-.subitem-details {
-  flex-grow: 1;
-}
+
 
 .cart-item {
   display:flex;
@@ -321,17 +328,25 @@ body {
 }
 
 .add-to-cart button {
-  margin-right: 15px;
+ 
   color: white;
   padding:5px 20px;
   border-radius: 5px;
   border-color: red ;
   background-color: black;
+}  
+
+.add-to-cart button:hover {
   cursor: pointer;
+
 }
 
 .login {
   margin-top: 100px;
+}
+
+.navbar-block {
+  width: 50%;
 }
 
 .register {
@@ -352,8 +367,9 @@ body {
 }
 
 .place-order-button {
-  width: auto;
-  max-width: 500px;
+  width: 500px ;
+  display: block;
+  justify-content: center;
   height: 50px;
   background-color: red;
   color: black;
@@ -361,6 +377,7 @@ body {
   text-align: center;
   text-decoration: none;
   align-content: center;
+  align-self: center;
 }
 
 .place-order-button:hover {
@@ -392,6 +409,24 @@ body {
   margin-right: 10px;
 }
 
+.cart-appear {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.cart-appear h3 {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  align-self: center;
+  width:fit-content;
+  justify-content: center;
+  color: #000;
+  background-color: aliceblue;
+}
+
 .cart hr {
   color: aliceblue;
   width: 95%;
@@ -405,19 +440,18 @@ body {
   min-height: 60px;
 }
 
-.cart-subitem {
+.cart-subitem  {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 }
 
 .cart-subitem p {
-  
+  width: 25%;
+
 }
 
 .subitems-cart {
-  display: flex;
-  justify-content: space-between;
+  /*display: flex;
+  justify-content: space-between;*/
   gap: 10px;
 }
 
