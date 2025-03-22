@@ -10,10 +10,11 @@ export const Navbar = () => {
       </div>
       <div className="navbar-block"></div>
       <div className="right">
-        <Link style={{ marginRight: "10px" }} className="links " to="/login">
+        <Link className="links " to="/login">
           {" "}
-          My Profile{" "}
+          Profile{" "}
         </Link>
+        <a href="https://portfolio-vijaykrishna.vercel.app/">My Portfolio</a>
       </div>
     </div>
   );

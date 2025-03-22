@@ -29,6 +29,7 @@ export const Home = () => {
       </div>
 
       <DeliveryFlex />
+      <br />
     </div>
   );
 };

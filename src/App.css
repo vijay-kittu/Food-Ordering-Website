@@ -156,9 +156,9 @@ body {
   display:flex;
   flex-wrap:wrap;
   justify-content: space-between;
-  background-color: rgb(255,0,0);
+  background-color: palevioletred /*rgb(255,0,0)*/;
   position:fixed;
-  background:linear-gradient(to bottom, red, transparent);
+  background:linear-gradient(to bottom, rgb(139, 3, 46), transparent);
   top:0;left: 0;right: 0;
   padding: 15px 10px;
   z-index:3;
@@ -175,12 +175,11 @@ body {
   gap:20px;
 }
 
-.links {
+.right a {
   text-decoration: none;
+  color:aliceblue;
   border-radius: 5px;
   margin: 10px;
-  color: white;
-  
 }
 
 /*-----------------------------------------------------------------------------*/
@@ -288,11 +287,12 @@ body {
   text-align: center;
   display:flex;
   flex-direction: column;
-  height:60vh;
+  font-size: small;
+  height:auto;
   width: 40vh;
-  border: 1px;
+  padding: 10px;
   border-radius: 10px;
-  background-color: slategray;
+  background-color: cornflowerblue;
   margin-bottom: 0.2rem;
 }
 
@@ -303,6 +303,7 @@ body {
   color: white;
   border: 0;
   height: 30px;
+  margin-top: 2px;
 }
 
 .subitem button:hover{
@@ -311,6 +312,8 @@ body {
 
 .subitem input {
   height: 25px;
+  width: 85%;
+  margin-bottom: 5px;
 }
 
 .subitem img {
@@ -346,7 +349,7 @@ body {
 }
 
 .navbar-block {
-  width: 50%;
+  width: auto;
 }
 
 .register {
@@ -421,10 +424,23 @@ body {
   text-align: center;
   align-items: center;
   align-self: center;
-  width:fit-content;
+  width:200px;
   justify-content: center;
   color: #000;
   background-color: aliceblue;
+}
+
+.delivery-flex  {
+  display: flex;
+  justify-content: space-around;
+  overflow-x: visible;
+}
+
+.delivery-flex div {
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cart hr {
@@ -470,7 +486,7 @@ body {
 .contact {
   bottom: 50px;
   display: flex;
-  justify-items: left;
+  justify-content:right;
 }
 
 .contact-logo {
