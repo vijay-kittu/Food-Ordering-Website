@@ -441,7 +441,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
+
+/*.delivery-flex div p {
+  transform:translateY(-20px);
+}*/
 
 .cart hr {
   color: aliceblue;

@@ -26,6 +26,7 @@ export const Home = () => {
       <ItemsGrid />
       <div>
         <br></br>
+        <br></br>
       </div>
 
       <DeliveryFlex />

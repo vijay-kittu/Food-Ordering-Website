@@ -4,15 +4,18 @@ export const DeliveryFlex = () => {
       {/*<img src="images/delivery-flex.png" />*/}
       <div>
         <img src="images/delivery-truck.svg" />
+        <h5>Free Delivery</h5>
         <p>Delivery within 40-45 min</p>
       </div>
       <div>
         <img src="images/wallet.png" />
-        <p>Delivery within 40-45 min</p>
+        <h5>Payment Options</h5>
+        <p>Online payment through UPI</p>
       </div>
       <div>
         <img src="images/customer-service.png" />
-        <p>Delivery within 40-45 min</p>
+        <h5>Contact Us</h5>
+        <p>Show some support !</p>
       </div>
     </div>
   );

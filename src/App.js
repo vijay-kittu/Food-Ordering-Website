@@ -8,7 +8,6 @@ import { Navbar } from "./components/Navbar.js";
 import { Login } from "./components/Login.js";
 import { Register } from "./components/Register.js";
 import { AuthProvider } from "./components/AuthContext.js";
-import { ContactUs } from "./components/ContactUs.js";
 import { SubItems } from "./components/SubItems.js";
 import { AddToCart } from "./components/AddToCart.js";
 import { CartProvider } from "./components/CartContext.js";
@@ -32,8 +31,6 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>
-
-          <ContactUs />
         </div>
       </CartProvider>
     </AuthProvider>
