@@ -444,9 +444,9 @@ body {
   
 }
 
-/*.delivery-flex div p {
+.delivery-flex div p {
   transform:translateY(-20px);
-}*/
+}
 
 .cart hr {
   color: aliceblue;
