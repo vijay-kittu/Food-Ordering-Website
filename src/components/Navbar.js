@@ -14,7 +14,13 @@ export const Navbar = () => {
           {" "}
           Profile{" "}
         </Link>
-        <a href="https://portfolio-vijaykrishna.vercel.app/">My Portfolio</a>
+        <a
+          href="https://portfolio-vijaykrishna.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          My Portfolio
+        </a>
       </div>
     </div>
   );

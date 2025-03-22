@@ -156,9 +156,9 @@ body {
   display:flex;
   flex-wrap:wrap;
   justify-content: space-between;
-  background-color: palevioletred /*rgb(255,0,0)*/;
+  background-color: rgb(255,0,0);
   position:fixed;
-  background:linear-gradient(to bottom, rgb(139, 3, 46), transparent);
+  background:linear-gradient(to bottom, red, transparent);
   top:0;left: 0;right: 0;
   padding: 15px 10px;
   z-index:3;
