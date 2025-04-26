@@ -42,11 +42,7 @@ export const AddToCart = () => {
             Total Amount: ₹
             {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
           </h3>
-          <Link
-            to="/order-placed"
-            className="place-order-button"
-            onClick={handleClick}
-          >
+          <Link to="/profile" className="place-order-button">
             Place Order
           </Link>
         </div>
