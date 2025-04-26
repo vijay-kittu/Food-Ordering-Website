@@ -1,15 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { AuthContext, useAuth } from "./AuthContext";
-import { auth, provider } from "../firebase";
+import { AuthContext } from "./AuthContext";
 import { CartContext } from "./CartContext";
+import { AddressContext } from "./AddressContext";
 
 export const Profile = () => {
   const { user, logout } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
+  const { addresses, addAddress } = useContext(AddressContext);
+
+  const [userName, setUserName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
 
   const navigate = useNavigate();
+
+  const handleAddAddress = async (event) => {
+    event.preventDefault();
+    if (!userName || !phoneNumber || !address) {
+      alert("Please fill all fields");
+      return;
+    }
+    await addAddress({ userName, phoneNumber, address });
+    setUserName("");
+    setPhoneNumber("");
+    setAddress("");
+  };
 
   useEffect(() => {
     if (!user) {
@@ -43,7 +60,46 @@ export const Profile = () => {
         ))
       )}
       <h3>Select your address:</h3>
-
+      <div>
+        {!addresses || addresses.length === 0 ? (
+          <p>No address added: {addresses.length}</p>
+        ) : (
+          addresses.map((addr, index) => (
+            <div key={index} className="cart-item profile-cart">
+              <div className="cart-subitem profile-subitem">
+                <p>Name: {addr.userName}</p>
+                <p>Phone Number: {addr.phoneNumber}</p>
+                <p>Address: {addr.address}</p>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+      <div>
+        <h3>Add New Address:</h3>
+        <form onSubmit={handleAddAddress}>
+          <input
+            value={userName}
+            type="text"
+            placeholder="Name"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <input
+            value={phoneNumber}
+            type="number"
+            placeholder="Phone Number"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <input
+            value={address}
+            type="text"
+            placeholder="Address"
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          <button type="submit">Add Address</button>
+        </form>
+      </div>
+      {/*<Link to="/">Add Address</Link>*/}
       <button type="submit" onClick={handleLogout}>
         Logout
       </button>
