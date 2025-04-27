@@ -23,7 +23,7 @@ export const Register = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log("Google login successful:", result.user);
-      setUser(result.user.displayName);
+      setUser({ username: result.user.displayName, userId: result.user.uid });
       navigate("/profile");
     } catch (error) {
       console.error("Google login error:", error);

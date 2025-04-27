@@ -4,6 +4,21 @@ import { useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import { CartContext } from "./CartContext";
 import { AddressContext } from "./AddressContext";
+///
+
+import { db } from "../firebase";
+import {
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+  arrayUnion,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
+
+///
 
 export const Profile = () => {
   const { user, logout } = useContext(AuthContext);
@@ -16,13 +31,32 @@ export const Profile = () => {
 
   const navigate = useNavigate();
 
+  ///
+
+  const addressesCollectionRef = collection(db, "addresses");
+
+  /*useEffect(() => {
+    const getAddressess = async () => {
+      try {
+        const data = await getDocs(addressesCollectionRef);
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getAddressess();
+  }, []);
+  */
+
+  ///
+
   const handleAddAddress = async (event) => {
     event.preventDefault();
     if (!userName || !phoneNumber || !address) {
       alert("Please fill all fields");
       return;
     }
-    await addAddress({ userName, phoneNumber, address });
+    await addAddress({ userName, phoneNumber, address, googleId: user.userId });
     setUserName("");
     setPhoneNumber("");
     setAddress("");
@@ -32,6 +66,37 @@ export const Profile = () => {
     if (!user) {
       navigate("/login");
     }
+
+    ///
+    const getAddressess = async () => {
+      /*try {
+        const data = await getDocs(addressesCollectionRef);
+        const filteredData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        console.log("This si the data: ", filteredData);
+      } catch (err) {
+        console.log("The error is: ", err);
+      }*/
+      try {
+        const q = query(
+          addressesCollectionRef,
+          where("googleId", "==", user.userId)
+        );
+        const data = await getDocs(q);
+        const filterData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
+        console.log("Filtered addresses: ", filterData);
+      } catch (err) {
+        console.log("Error fetching: ", err);
+      }
+    };
+    getAddressess();
+    ///
   }, [user, navigate]);
 
   const handleLogout = () => {
@@ -41,7 +106,7 @@ export const Profile = () => {
 
   return (
     <div className="profile">
-      <div>Welcome, {user}</div>
+      <div>Welcome, {user?.username}</div>
       {!cart || cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (

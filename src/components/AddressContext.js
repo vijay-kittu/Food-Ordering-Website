@@ -1,6 +1,12 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { db } from "../firebase";
-import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
 import { AuthContext } from "./AuthContext";
 
 export const AddressContext = createContext();
@@ -39,6 +45,21 @@ export const AddressProvider = ({ children }) => {
     fetchAddresses();
   }, [user]);
 
+  /*const addressesCollectionRef = collection(db, "addresses");
+
+  useEffect (() => {
+    const getAddressess = async () => {
+      try {
+              const data = await getDocs(addressesCollectionRef);
+        console.log(data);
+      }
+      catch(err){
+        console.log(err);
+      }
+
+    }
+  })*/
+
   // Function to add a new address
   const addAddress = async (newAddress) => {
     if (!user) {
@@ -47,7 +68,7 @@ export const AddressProvider = ({ children }) => {
     }
 
     try {
-      await updateDoc(doc(db, "users", user.uid), {
+      await updateDoc(doc(db, "users", user.userid), {
         addresses: arrayUnion(newAddress),
       });
       setAddresses((prev) => [...prev, newAddress]);
