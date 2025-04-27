@@ -190,6 +190,11 @@ body {
   }
 }
 
+.google-login {
+  padding: 5px;
+  border-radius: 10px;
+}
+
 .grid-section-boxes {
   height: 40vh;
   font-size:medium;

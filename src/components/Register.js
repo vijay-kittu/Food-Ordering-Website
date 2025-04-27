@@ -101,7 +101,9 @@ export const Register = () => {
       </form>
       <br />
       <br />
-      <button onClick={handleGoogleLogin}>Login with Google</button>
+      <button onClick={handleGoogleLogin} className="google-login">
+        Login with Google
+      </button>
       <div className="note">This page is under development.</div>
     </div>
   );

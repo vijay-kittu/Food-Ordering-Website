@@ -53,7 +53,7 @@ export const AddressProvider = ({ children }) => {
       setAddresses((prev) => [...prev, newAddress]);
       console.log("New address added!");
     } catch (error) {
-      console.error("Error adding address:", error);
+      console.error("Error adding address: ", error);
     }
   };
 
