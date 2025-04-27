@@ -3,9 +3,11 @@ import { db } from "../firebase";
 import {
   doc,
   getDoc,
+  addDoc,
   getDocs,
   updateDoc,
   arrayUnion,
+  collection,
 } from "firebase/firestore";
 import { AuthContext } from "./AuthContext";
 
@@ -68,8 +70,8 @@ export const AddressProvider = ({ children }) => {
     }
 
     try {
-      await updateDoc(doc(db, "users", user.userid), {
-        addresses: arrayUnion(newAddress),
+      await addDoc(collection(db, "addresses"), {
+        ...newAddress,
       });
       setAddresses((prev) => [...prev, newAddress]);
       console.log("New address added!");
@@ -79,7 +81,7 @@ export const AddressProvider = ({ children }) => {
   };
 
   return (
-    <AddressContext.Provider value={{ addresses, addAddress }}>
+    <AddressContext.Provider value={{ addresses, setAddresses, addAddress }}>
       {children}
     </AddressContext.Provider>
   );

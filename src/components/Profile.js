@@ -23,7 +23,7 @@ import {
 export const Profile = () => {
   const { user, logout } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
-  const { addresses, addAddress } = useContext(AddressContext);
+  const { addresses, setAddresses, addAddress } = useContext(AddressContext);
 
   const [userName, setUserName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -89,7 +89,7 @@ export const Profile = () => {
           ...doc.data(),
           id: doc.id,
         }));
-
+        setAddresses(filterData);
         console.log("Filtered addresses: ", filterData);
       } catch (err) {
         console.log("Error fetching: ", err);
