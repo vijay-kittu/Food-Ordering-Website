@@ -86,6 +86,16 @@ body {
 
 /*-------------------------------------------------------------------------*/
 
+.address:hover{
+  cursor: pointer;
+}
+
+.add-address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 
 .notifications-page-styles {
   display: flex;
@@ -359,7 +369,7 @@ body {
 
 .profile-cart {
   background-color: red;
-  padding: 10px;
+  padding: 5px;
   border-radius:10px;
   width: 85% ;
   align-items: center;
@@ -367,7 +377,8 @@ body {
 }
 
 .profile-subitem {
-  background-color: #000;
+  background-color: black;
+  
 }
 
 .register {
@@ -486,6 +497,9 @@ body {
 
 .cart-subitem  {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cart-subitem p {
@@ -545,6 +559,8 @@ body {
 .login div {
   flex-direction: row;
 }
+
+
 
 @media (max-width: 1000px) {
   .subitems-cart {

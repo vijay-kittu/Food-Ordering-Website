@@ -116,7 +116,6 @@ export const Profile = () => {
               <p>{item.itemName}</p>
               <p>Price: ₹{item.price}</p>
               <p>Quantity: {item.quantity}</p>
-              <div className="space-block"></div>
               <p className="right-align">
                 Total Price: {item.price * item.quantity}
               </p>
@@ -130,19 +129,25 @@ export const Profile = () => {
           <p>No address added: {addresses.length}</p>
         ) : (
           addresses.map((addr, index) => (
-            <div key={index} className="cart-item profile-cart">
-              <div className="cart-subitem profile-subitem">
-                <p>Name: {addr.userName}</p>
-                <p>Phone Number: {addr.phoneNumber}</p>
-                <p>Address: {addr.address}</p>
+            <div>
+              <div key={index} className="cart-item profile-cart">
+                <div
+                  className="cart-subitem profile-subitem address"
+                  onClick={() => navigate("/order-placed")}
+                >
+                  <p>Name: {addr.userName}</p>
+                  <p>Phone Number: {addr.phoneNumber}</p>
+                  <p>Address: {addr.address}</p>
+                </div>
               </div>
+              <br></br>
             </div>
           ))
         )}
       </div>
       <div>
         <h3>Add New Address:</h3>
-        <form onSubmit={handleAddAddress}>
+        <form className="add-address" onSubmit={handleAddAddress}>
           <input
             value={userName}
             type="text"

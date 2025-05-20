@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { CartContext } from "./CartContext";
+import { useEffect, useContext } from "react";
 
 export const OrderPlaced = () => {
-  const { cart, emptyCart } = useAuth();
+  const { cart, emptyCart } = useContext(CartContext);
+  useEffect(() => {
+    emptyCart();
+  }, []);
 
   return (
     <div className="order-placed">
